@@ -14,6 +14,9 @@ a {
    text-decoration: none;
 }
 
+html {
+   font-size: 16px;
+}
 
 $pale-blue: hsl(225, 100%, 94%);
 $bright-blue:hsl(245, 75%, 52%);
@@ -25,33 +28,43 @@ $Family:'Red Hat Display',
 sans-serif;
 
 body {
-   font-size: 14px;
-   font-family: $Family;
+
+   padding: 10px;
+   width: 100vw;
+   height: 100vh;
+   overflow: hidden;
+
+   display: flex;
+
+   align-items: center;
+
+   justify-content: center;
+   flex-direction: column;
+   background: url('../../images/pattern-background-desktop.svg') no-repeat center top fixed $pale-blue;
+
 }
 
-.wrapper {
-   width: 100%;
-   background: url('../../images/pattern-background-desktop.svg') no-repeat center top fixed $pale-blue;
-   background-size: contain;
-   // display: flex;
-   // align-items: center;
-   // justify-content: center;
-   padding: 100px 0;
-}
 
 .card {
    background-color: #fff;
    border-radius: 15px;
-   width: 450px;
-   height: 700px;
-   margin: 0 auto;
+   // max-width: 450px;
+   max-width: 28rem;
+   // margin: 2rem;
+   display: flex;
+   flex-direction: column;
 
    &__image {
-      width: 100%;
-      height: auto;
+
       margin-bottom: 45px;
+      display: flex;
 
+      & img {
 
+         border-radius: 15px 15px 0 0;
+         width: 100%;
+
+      }
 
    }
 
@@ -61,10 +74,11 @@ body {
       align-items: center;
       justify-content: center;
       padding: 0 47px 0 47px;
+      // flex: 1;
    }
 
    &__title {
-      font-size: 30px;
+      font-size: 2rem;
       font-weight: 900;
       margin-bottom: 25px;
       color: $dark-blue;
@@ -74,7 +88,7 @@ body {
       font-weight: 500;
       color: $Desaturated-blue;
       margin-bottom: 20px;
-      font-size: 18px;
+      font-size: 1.4rem;
       letter-spacing: 1.8;
       text-align: center;
    }
@@ -83,7 +97,7 @@ body {
       display: flex;
       margin-bottom: 30px;
       background-color: $very-paleblue;
-      padding: 25px 25px;
+      padding: 1.5rem;
       width: 100%;
       justify-content: space-between;
       border-radius: 15px;
@@ -91,15 +105,13 @@ body {
    }
 
 
-
-
-
-
    &__proceed {
-      display: flex;
-      height: 60px;
-      padding: 0 100px;
-      align-items: center;
+      display: inline-block;
+      margin: 1.6rem 3.2rem;
+
+      padding: 1rem 4rem;
+      white-space: nowrap;
+
       text-align: center;
       background-color: $bright-blue;
       border-radius: 15px;
@@ -109,7 +121,7 @@ body {
       -moz-box-shadow: 4px 25px 25px 0px hsl(225, 100%, 94%);
       box-shadow: 4px 25px 25px 0px hsl(225, 100%, 94%);
       margin-bottom: 30px;
-      font-size: 16px;
+      font-size: 1rem;
       transition: 0.5s;
 
       &:hover {
@@ -121,7 +133,7 @@ body {
       margin-bottom: 50px;
       color: $Desaturated-blue;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 1rem;
       transition: 0.5s;
 
       &:hover {
@@ -138,7 +150,7 @@ body {
       margin-right: 20px;
    }
 
-   &__current {}
+
 }
 
 .current {
@@ -150,14 +162,14 @@ body {
       font-weight: 700;
       color: $dark-blue;
       margin-bottom: 8px;
-      font-size: 20px;
+      font-size: 1.25rem;
       white-space: nowrap;
    }
 
    &__price {
       font-weight: 500;
       color: $Desaturated-blue;
-      font-size: 18px;
+      font-size: 1.2rem;
    }
 
    &__btn {
@@ -174,5 +186,94 @@ body {
          color: #c97bef;
       }
 
+   }
+}
+
+.attribution {
+
+   position: absolute;
+   bottom: 10px;
+   left: 50%;
+   -webkit-transform: translateX(-50%);
+   transform: translateX(-50%);
+   font-size: 0.7rem;
+   text-align: center;
+
+   width: 100%;
+}
+
+.attribution a {
+   color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 490px) {
+
+
+   .card {
+      margin: 1rem;
+      width: 90vw;
+
+      &__image {
+         margin-bottom: 1rem;
+
+      }
+
+      &__title {
+         margin-bottom: 0.6rem;
+      }
+
+      &__proceed {
+         white-space: nowrap;
+         margin-bottom: 1rem;
+      }
+
+      &__text {
+         font-size: 1.2rem;
+      }
+
+      // &__plan {
+      //    flex-wrap: wrap;
+      //    justify-content: center;
+      //    text-align: center;
+      // }
+
+      &__block {
+         padding: 0 1.5rem;
+      }
+   }
+
+
+}
+
+@media (max-width: 400px) {
+   .card-plan {
+      flex-direction: row;
+      padding: 10px;
+
+      &__img {
+         display: none;
+      }
+
+
+      &__current {
+         margin-bottom: 1rem;
+      }
+   }
+
+   .current__btn {
+      text-align: center;
+   }
+
+   .card__plan {
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+   }
+}
+
+
+@media (max-width: 375px) {
+   body {
+      background: url('../../images/pattern-background-mobile.svg') no-repeat center top fixed $pale-blue;
    }
 }

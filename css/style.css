@@ -14,29 +14,52 @@ a {
   text-decoration: none;
 }
 
-body {
-  font-size: 14px;
-  font-family: "Red Hat Display", sans-serif;
+html {
+  font-size: 16px;
 }
 
-.wrapper {
-  width: 100%;
+body {
+  padding: 10px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background: url("../../images/pattern-background-desktop.svg") no-repeat center top fixed #e0e8ff;
-  background-size: contain;
-  padding: 100px 0;
 }
 
 .card {
   background-color: #fff;
   border-radius: 15px;
-  width: 450px;
-  height: 700px;
-  margin: 0 auto;
+  max-width: 28rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .card__image {
-  width: 100%;
-  height: auto;
   margin-bottom: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.card__image img {
+  border-radius: 15px 15px 0 0;
+  width: 100%;
 }
 .card__block {
   display: -webkit-box;
@@ -55,7 +78,7 @@ body {
   padding: 0 47px 0 47px;
 }
 .card__title {
-  font-size: 30px;
+  font-size: 2rem;
   font-weight: 900;
   margin-bottom: 25px;
   color: #1f2f56;
@@ -64,7 +87,7 @@ body {
   font-weight: 500;
   color: #7280a7;
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 1.4rem;
   letter-spacing: 1.8;
   text-align: center;
 }
@@ -74,7 +97,7 @@ body {
   display: flex;
   margin-bottom: 30px;
   background-color: #f5f7ff;
-  padding: 25px 25px;
+  padding: 1.5rem;
   width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -85,14 +108,10 @@ body {
           align-items: center;
 }
 .card__proceed {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 60px;
-  padding: 0 100px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: inline-block;
+  margin: 1.6rem 3.2rem;
+  padding: 1rem 4rem;
+  white-space: nowrap;
   text-align: center;
   background-color: #3829e0;
   border-radius: 15px;
@@ -101,7 +120,7 @@ body {
   -webkit-box-shadow: 4px 25px 25px 0px #e0e8ff;
   box-shadow: 4px 25px 25px 0px #e0e8ff;
   margin-bottom: 30px;
-  font-size: 16px;
+  font-size: 1rem;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -112,7 +131,7 @@ body {
   margin-bottom: 50px;
   color: #7280a7;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -127,6 +146,7 @@ body {
   height: 100%;
   margin-right: 20px;
 }
+
 .current {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 25%;
@@ -143,13 +163,13 @@ body {
   font-weight: 700;
   color: #1f2f56;
   margin-bottom: 8px;
-  font-size: 20px;
+  font-size: 1.25rem;
   white-space: nowrap;
 }
 .current__price {
   font-weight: 500;
   color: #7280a7;
-  font-size: 18px;
+  font-size: 1.2rem;
 }
 .current__btn {
   text-decoration: underline;
@@ -166,4 +186,75 @@ body {
 .current__btn:hover {
   text-decoration: none;
   color: #c97bef;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  text-align: center;
+  width: 100%;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+
+@media (max-width: 490px) {
+  .card {
+    margin: 1rem;
+    width: 90vw;
+  }
+  .card__image {
+    margin-bottom: 1rem;
+  }
+  .card__title {
+    margin-bottom: 0.6rem;
+  }
+  .card__proceed {
+    white-space: nowrap;
+    margin-bottom: 1rem;
+  }
+  .card__text {
+    font-size: 1.2rem;
+  }
+  .card__block {
+    padding: 0 1.5rem;
+  }
+}
+@media (max-width: 400px) {
+  .card-plan {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 10px;
+  }
+  .card-plan__img {
+    display: none;
+  }
+  .card-plan__current {
+    margin-bottom: 1rem;
+  }
+
+  .current__btn {
+    text-align: center;
+  }
+
+  .card__plan {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+  }
+}
+@media (max-width: 375px) {
+  body {
+    background: url("../../images/pattern-background-mobile.svg") no-repeat center top fixed #e0e8ff;
+  }
 }
